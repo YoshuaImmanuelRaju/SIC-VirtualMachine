@@ -1,6 +1,13 @@
 
 # SIC Virtual Machine
 
+## Team Members
+
+* Devanandh M S
+* Karthik S
+* S Saikrishna
+* Yoshua Immanuel Raju
+  
 ## Overview
 The SIC Virtual Machine (SIC-VM) is an educational software designed to help students understand the fundamentals of computer architecture and programming. Based on the Simplified Instructional Computer (SIC) architecture, the SIC-VM simulates the behavior of a basic machine with an emphasis on low-level programming, memory management, and instruction execution. Students can write and execute SIC programs, visualize memory and registers, and step through their code to gain a deeper understanding of how computers execute instructions.
 
