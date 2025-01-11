@@ -37,7 +37,9 @@ The virtual machine is designed with modularity in mind, allowing others to add 
 * Libraries: Standard libraries for GUI (e.g., Tkinter, Qt), memory management, and visualization.
 * Version Control: GitHub for code versioning, documentation, and collaboration.
 * Documentation Tools: Markdown or Sphinx for generating readable and structured documentation.
-Project Goals
+
+## Project Goals
+
 Develop a fully functional SIC virtual machine that can be used for educational purposes.
 Enable modular architecture support so users can add new architectures without modifying the core system.
 Provide a user-friendly interface that allows students to learn and experiment with the SIC architecture.
