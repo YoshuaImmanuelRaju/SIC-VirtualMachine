@@ -3,7 +3,7 @@
 
 ## Team Members
 
-* Devanandh M S
+* Devanand M S
 * Karthik S
 * S Saikrishna
 * Yoshua Immanuel Raju
