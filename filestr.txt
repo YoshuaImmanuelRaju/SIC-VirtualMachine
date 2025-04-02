@@ -1,0 +1,26 @@
+sic-debugger/
+ ├── src/                      # Source files
+ │      ├── debugger.cpp        # CLI interface and main debugger logic
+ │      ├── execution.cpp       # Execution control (step, run, breakpoints)
+ │      ├── memory.cpp          # Memory and register inspection
+ │      ├── disassembler.cpp    # Disassembly logic
+ │      ├── symbols.cpp         # Symbol table loader
+ │      ├── utils.cpp           # Helper functions
+ │
+ ├── include/                   # Header files
+ │      ├── debugger.h          # Header file for debugger class
+ │      ├── execution.h         # Execution control functions
+ │      ├── memory.h            # Memory inspection functions
+ │      ├── disassembler.h      # Disassembly functions
+ │      ├── symbols.h           # Symbol table functions
+ │
+ ├── obj/                      # Sample SIC object files
+ │      ├── program.obj          # object code
+ │      ├── program.sym          # Symbol table
+ │
+ ├── bin/                       # Compiled binary
+ │      └── sic-debugger         # Final executable
+ │
+ ├── README.md                  # Documentation
+ └── Makefile                   # Single Makefile at the root
+
