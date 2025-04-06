@@ -1,44 +1,32 @@
-# Compiler settings
-CXX = g++
-CXXFLAGS = -std=c++17 -Wall -g
+// === Makefile ===
 
-# Directories
+CXX = g++
+CXXFLAGS = -std=c++17 -Wall -Wextra -g
+INCLUDES = -Iinclude
 SRC_DIR = src
 OBJ_DIR = obj
-INCLUDE_DIR = include
+BIN_DIR = bin
 
-# Source files
-SRCS = $(SRC_DIR)/debugger.cpp \
-       $(SRC_DIR)/execution.cpp \
-       $(SRC_DIR)/memory.cpp \
-       $(SRC_DIR)/disassembler.cpp \
-       $(SRC_DIR)/symbols.cpp \
-       $(SRC_DIR)/utils.cpp
+SOURCES = $(wildcard $(SRC_DIR)/*.cpp)
+OBJECTS = $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SOURCES))
+EXECUTABLE = $(BIN_DIR)/sicdebug
 
-# Object files
-OBJS = $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
+all: $(EXECUTABLE)
 
-# Executable name
-EXEC = sic-debugger
+$(EXECUTABLE): $(OBJECTS) | $(BIN_DIR)
+	$(CXX) $(CXXFLAGS) $(OBJECTS) -o $@
 
-# Default target
-all: $(EXEC)
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $< -o $@
 
-# Link object files to create the executable
-$(EXEC): $(OBJS)
-	$(CXX) $(OBJS) -o $(EXEC)
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
 
-# Rule to compile source files into object files
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
-	$(CXX) $(CXXFLAGS) -I$(INCLUDE_DIR) -c $< -o $@
+$(BIN_DIR):
+	mkdir -p $(BIN_DIR)
 
-# Clean up object files and the executable
 clean:
-	rm -f $(OBJ_DIR)/*.o $(EXEC)
+	rm -rf $(OBJ_DIR) $(BIN_DIR)
 
-# Run the debugger
-run: $(EXEC)
-	./$(EXEC)
+.PHONY: all clean
 
-# Rebuild everything
-rebuild: clean all
